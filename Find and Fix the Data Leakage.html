@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html><head></head><body style="color: rgb(32, 33, 34); font-family: undefined;"><p><strong>Objective:</strong><strong><br></strong>In this assignment, you will visit the Titanic ML pipeline. That version of the pipeline actually contains a subtle but important problem: <strong>data leakage</strong>.</p>
+<p>Your job is to&nbsp;<strong>identify where the leakage is happening</strong>, explain&nbsp;<strong>why it’s a form of leakage</strong>, and then&nbsp;<strong>correct it</strong>&nbsp;by rewriting the code properly.</p>
+<p><strong>What you need to do:</strong></p>
+<ol>
+<li aria-level="1"><strong>Review the demo pipeline</strong><strong><br></strong>Go to the Titanic pipeline and review it.<br><br></li>
+<li aria-level="1"><strong>Find the leakage</strong><strong><br></strong>Carefully read through the preprocessing and feature engineering steps. Look for any point where&nbsp;<strong>information from the test set</strong>&nbsp;may be unintentionally influencing the training set.<br><br>Hint: Think about&nbsp;<strong>how missing values were filled</strong>, and&nbsp;<strong>what data was used to compute those fill values</strong>.<br><br></li>
+<li aria-level="1"><strong>Explain the problem</strong><strong><br></strong>In a short comment or text cell:<br><br>
+<ul>
+<li aria-level="2">Point out exactly&nbsp;<strong>where</strong>&nbsp;the leakage happens (mention the specific line or transformation).<br><br></li>
+<li aria-level="2">Explain&nbsp;<strong>why it’s a problem</strong>&nbsp;— in other words, how it violates the principle of keeping test data separate from training data.<br><br></li>
+</ul>
+</li>
+<li aria-level="1"><strong>Fix the code</strong><strong><br></strong>Modify the pipeline so that the imputation or transformation uses&nbsp;<strong>only the training data</strong>&nbsp;to compute any statistics (like medians or modes), and then applies them to both the train and test sets.<br><br></li>
+<li aria-level="1"><strong>Submit the fixed version</strong><strong><br><br></strong>
+<ul>
+<li aria-level="2">Include the corrected notebook with comments or a markdown cell explaining your fix.<br><br></li>
+<li aria-level="2">Make sure the new version&nbsp;<strong>does not leak test data into training</strong>&nbsp;at any stage.<br><br></li>
+</ul>
+</li>
+</ol>
+<p>&nbsp;</p>
+<p><strong>How you’ll be graded:</strong></p>
+<ul>
+<li aria-level="1">Correct identification of the leakage point<br><br></li>
+<li aria-level="1">Clear explanation of why it’s leakage<br><br></li>
+<li aria-level="1">A corrected version of the pipeline that avoids the issue<br><br></li>
+<li aria-level="1">Clean and understandable code/comments<br><br></li>
+</ul>
+<p><strong>Tips:</strong></p>
+<ul>
+<li aria-level="1">Leakage is often unintentional, it happens when we apply transformations before splitting or when we compute statistics using the full dataset.<br><br></li>
+<li aria-level="1">You can test for leakage by asking:&nbsp;<em>“Did this transformation use test data in any way during training?”</em><em><br><br></em></li>
+<li aria-level="1">Focus especially on steps like filling missing values, encoding, or scaling — those are common places where leakage hides.<br><br></li>
+</ul>
+<p>&nbsp;</p></body></html>
